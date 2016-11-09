@@ -1,0 +1,10 @@
+{
+  "array":[
+    {
+         "url": "ichat://work/vcOnerac",
+         "class": "MineViewControllerOne",
+    },{
+         "url": "ichat://work/vcTworac",
+         "class": "MineViewControllerTwo",
+    },]
+}

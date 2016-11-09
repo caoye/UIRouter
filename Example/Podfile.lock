@@ -1,0 +1,29 @@
+PODS:
+  - ArchLogger (0.1.6)
+  - FBSnapshotTestCase (2.1.2):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.2)
+  - FBSnapshotTestCase/Core (2.1.2)
+  - FBSnapshotTestCase/SwiftSupport (2.1.2):
+    - FBSnapshotTestCase/Core
+  - Kiwi (2.4.0)
+  - UIRouter (0.1.9):
+    - ArchLogger
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - Kiwi
+  - UIRouter (from `../`)
+
+EXTERNAL SOURCES:
+  UIRouter:
+    :path: ../
+
+SPEC CHECKSUMS:
+  ArchLogger: 191e4a114d5dcfe8344d3942f1013564121d294c
+  FBSnapshotTestCase: 918c55861356ee83aee7843d759f55a18ff6982b
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  UIRouter: 2ac60e98d30daaaf4ad16bbb5899ec6d71c4bc51
+
+PODFILE CHECKSUM: c30c0e07ee00637befc55d6a2d723fd398ad6965
+
+COCOAPODS: 1.0.0

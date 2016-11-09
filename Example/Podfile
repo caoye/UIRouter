@@ -1,0 +1,14 @@
+use_frameworks!
+source 'http://10.69.213.78:6080/MXOfficeiOS/MeiXinSpecs.git'
+source 'http://10.69.213.78:6080/MXOfficeiOS/Specs.git'
+
+target 'UIRouter_Example' do
+  pod 'UIRouter', :path => '../'
+
+  target 'UIRouter_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+  end
+end
