@@ -99,7 +99,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-“caoye”, caoye@gomeplus.com
+“caoye”, “1595576349@qq.com”
 
 ## License
 
