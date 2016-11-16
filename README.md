@@ -11,6 +11,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+`UIRouter`是一款通过URI绑定VC跳转界面的工具，从而达到解除项目中的耦合性。
+
 ### 跳转类型 `JumpType`
 
 ```
@@ -21,8 +23,12 @@ PopRoot,
 PopSome,
 Dismiss,   
 ```
-	   
-	   
+
+## 思维导图
+
+!["思维导图"](./router思维导图.png)
+
+
 ### 提供的接口方法
 
 方法名称	 	| 方法描述     						 | 需要参数类型
@@ -88,6 +94,11 @@ self.router.deregisterURL(vcOnerac);
 可以用self.router调用，也可以用UIRouter.router去调用，由于用的函数式编程写法，每个方法返回的都是UIRouter的实例，根据跳转类型添加自己需要的方法，但是openUrl方法或者closeWithUrl方法一定要写到最后调用，
 
 
+## 用法方便之处
+
+*我们可以把方法调用比做一个正在流水的水龙头，我们想控制水的流向和水流的大小，我们通常的方法是在方法的时候做很多处理，然后控制水流的特性，但当我们应用了这种方式，我们可以在方法调用的入口（self.router）和调用的出口（openUrl）之间插入我们想要的水流的特性，来控制水流，self.router.`jump(Present).animated(NO)`.openUrl(@"xxx")*
+
+
 ## Installation
 
 UIRouter is available through [CocoaPods](http://cocoapods.org). To install
@@ -99,7 +110,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-“caoye”, “1595576349@qq.com”
+“caoye”, caoye@gomeplus.com
 
 ## License
 
