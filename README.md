@@ -55,14 +55,16 @@ handler      |界面跳转完成的回调操作(对应模态界面的回调，pu
 ```
 ### 调用注册方法
 ```objectivec
-NSArray * moduleArray = @[@"MineModule"];
-   for (NSString * moduleString in moduleArray) {
-       Class class = NSClassFromString(moduleString);
-       if ([class respondsToSelector:@selector(registerURL)]) {
-           [class performSelector:@selector(registerURL)
-                       withObject:nil];
-       }
-   }
+ NSArray *moduleArray = @[ @"MXLoginModule", @"MineModule", @"AddressBookModule", @"MXMessageModule", @"PhotoAssetsModule", @"ClientApprovalMoudle" ];
+    for (NSString *moduleString in moduleArray) {
+        Class class = NSClassFromString(moduleString);
+        SEL sel = NSSelectorFromString(@"registerURL");
+        IMP imp = [class methodForSelector:sel];
+        if (imp) {
+            void (*func)(id, SEL) = (void *)imp;
+            func(class, sel);
+        }
+    }
 ```
 
 
