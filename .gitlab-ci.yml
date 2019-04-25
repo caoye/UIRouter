@@ -1,0 +1,27 @@
+before_script:
+- cd Example
+- export LANG=en_US.UTF-8
+- pod install --repo-update
+- cd ..
+
+stages:
+  - lint
+  - push
+
+job_lint:
+  stage: lint
+  script:
+    - cd pod_shell && sh lint && cd ..
+  only:
+    - tags
+  tags:
+    - MacPro-Runner-iOS
+
+job_push:
+  stage: push
+  script:
+    - cd pod_shell && sh push && cd ..
+  only:
+    - tags
+  tags:
+    - MacPro-Runner-iOS

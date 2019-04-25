@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIRouter.h"
+#import "UIRouterUrl.h"
+#import "MXMessageData.h"
 
 static NSString * rootvc = @"ichat://message/rootvc";
 static NSString * vcOne = @"ichat://message/vcOne";
@@ -15,6 +16,6 @@ static NSString * vcTwo = @"ichat://message/vcTwo";
 static NSString * vcThree = @"ichat://message/vcThree";
 static NSString * viewFour = @"ichat://message/MessageView";
 
-@interface MessageModule : NSObject
+@interface MessageModule : BaseModule
 
 @end

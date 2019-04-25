@@ -22,6 +22,7 @@
 
 - (IBAction)backBtn:(id)sender {
     
+    selfCallBackBlock(@"2222", CallBackThird);
     [self.router.fromVC(self).jump(Dismiss).closeWithUrl(vcTwoarc) handler:^{
         NSLog(@"wancheng");
     }];

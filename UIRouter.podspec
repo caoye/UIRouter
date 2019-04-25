@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UIRouter'
-  s.version          = '0.2.1'
+  s.version          = '0.2.7'
   s.summary          = 'register url to jump vc'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
     register url to jump vc to Decoupling
                 DESC
 
-  s.homepage         = 'http://10.69.213.78:6080/MXOfficeiOS/UIRouter'
+  s.homepage         = 'http://code.ds.gome.com.cn/gitlab/Aeromind-iOS/UIRouter'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '“caoye”' => 'caoye@gomeplus.com' }
-  s.source           = { :git => 'http://10.69.213.78:6080/MXOfficeiOS/UIRouter.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@code.ds.gome.com.cn:Aeromind-iOS/UIRouter.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

@@ -26,6 +26,11 @@ static NSString * kCellIdentify = @"cell";
     _rootTable.delegate = self;
     _rootTable.dataSource = self;
 
+//    UILabel *labeOne = ({
+//        UILabel *label = [[UILabel alloc] init];
+//        label;
+//    });
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -51,6 +56,9 @@ static NSString * kCellIdentify = @"cell";
         case 2:
             [self present];
             break;
+        case 3:
+            [self getMessageData];
+            break;
         default:
             break;
     }
@@ -59,16 +67,22 @@ static NSString * kCellIdentify = @"cell";
 - (void)push {
     
    //简单用法
-//    self.router.openUrl(vcOnerac);
+    self.router.openUrl(vcOnerac);
     
 //    //带界面跳转完成回调用法
-    [self.router.openUrl(vcOnerac) handler:^{
-        NSLog(@"wancheng");
-    }];
+//    [[self.router callBackBlock:^(id param, CallBackType type) {
+//        NSLog(@"-------%@---%ld",param, type);
+//    }].openUrl(vcOnerac) handler:^{
+//        NSLog(@"wancheng");
+//    }];
 //
-//    //传参数用法
+    
+    
+    //传参数用法
 //    self.router.openUrlWithParam(vcOnerac,@"参数");
-
+    
+    
+//    UIRouter.router.fromNav(self.navigationController).openUrl(vcOnerac);
 }
 
 - (void)configVC {
@@ -78,9 +92,16 @@ static NSString * kCellIdentify = @"cell";
 
 - (void)present {
     //模态界面用法
-    [self.router.jump(Present).openUrl(vcTwoarc) handler:^{
+    [[self.router callBackBlock:^(id param, CallBackType type) {
+        NSLog(@"-------%@---%ld",param, type);
+    }].jump(Present).openUrl(vcTwoarc) handler:^{
         NSLog(@"present 完成");
     }];
+}
+
+- (void)getMessageData {
+   NSArray *dataArray = [UIRouter postModuleWithTarget:@"MessageModule" action:@selector(getMessageData) withObject:@"123"];
+    NSLog(@"********%@", dataArray);
 }
 
 @end

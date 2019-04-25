@@ -16,23 +16,25 @@
 @implementation MessageModule
 
 //注册方法
-+ (void)load {
++ (void)registerURL {
     
-//    [[UIRouter shareInstance] registerURLPattern:vcOne Class:[MessageViewControllerOne class]  toHandler:^(id param, id nav, UIViewController *toVC) {
-//        [nav pushViewController:toVC animated:YES];
-//    }];
-//    
-//    [[UIRouter shareInstance] registerURLPattern:vcTwo Class:[MessageViewControllerTwo class]  toHandler:^(id param, id nav, UIViewController *toVC) {
-//        toVC.hidesBottomBarWhenPushed = YES;
-//        [nav pushViewController:toVC animated:YES];
-//    }];
-//    
-//    [[UIRouter shareInstance] registerURLPattern:vcThree Class:[MessageViewControllerThree class]  toHandler:^(id param, id nav, UIViewController *toVC) {
-//        [nav presentViewController:toVC animated:YES completion:^{
-//            
-//        }];
-//    }];
+    [[UIRouter shareInstance] registerURLPattern:vcOne Class:[MessageViewControllerOne class]  toHandler:^(id param, UINavigationController *nav, JumpType type, UIViewController *fromVC) {
+        MessageViewControllerOne * toVC = [[MessageViewControllerOne alloc] init];
+        [self jumpTovc:type nav:nav fromeV:fromVC toVC:toVC urlString:vcOne];
+    }];
+    
+    [[UIRouter shareInstance] registerURLPattern:vcTwo Class:[MessageViewControllerTwo class]  toHandler:^(id param, UINavigationController *nav, JumpType type, UIViewController *fromVC) {
+        MessageViewControllerTwo * toVC = [[MessageViewControllerTwo alloc] init];
+        toVC.hidesBottomBarWhenPushed = YES;
+        [self jumpTovc:type nav:nav fromeV:fromVC toVC:toVC urlString:vcTwo];
+    }];
     
 }
+
+- (NSArray *)getMessageData {
+    MXMessageData *mxData = [[MXMessageData alloc] init];
+    return [mxData messageData];
+}
+
 
 @end

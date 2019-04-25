@@ -14,14 +14,10 @@
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //调用注册方法
-    NSArray * moduleArray = @[@"MineModule"];
-    for (NSString * moduleString in moduleArray) {
-        Class class = NSClassFromString(moduleString);
-        if ([class respondsToSelector:@selector(registerURL)]) {
-            [class performSelector:@selector(registerURL)
-                        withObject:nil];
-        }
-    }
+    NSArray * moduleArray = @[@"MineModule", @"MessageModule"];
+    
+    [[UIRouter router] registerModules:moduleArray];
+    
     return YES;
 }
 

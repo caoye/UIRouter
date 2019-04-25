@@ -1,0 +1,27 @@
+{
+  "name": "UIRouter",
+  "version": "0.2.7",
+  "summary": "register url to jump vc",
+  "description": "register url to jump vc to Decoupling",
+  "homepage": "http://code.ds.gome.com.cn/gitlab/Aeromind-iOS/UIRouter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "“caoye”": "caoye@gomeplus.com"
+  },
+  "source": {
+    "git": "git@code.ds.gome.com.cn:Aeromind-iOS/UIRouter.git",
+    "tag": "0.2.7"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "UIRouter/Classes/**/*",
+  "dependencies": {
+    "ArchLogger": [
+
+    ]
+  }
+}

@@ -45,7 +45,7 @@ handler      |界面跳转完成的回调操作(对应模态界面的回调，pu
  
 
 ### 注册URL
-```objectivec
+```
 	+ (void)registerURL {
 	 [[UIRouter shareInstance] registerURLPattern:vcOnerac Class:[MineViewControllerOne class] toHandler:^(id param, UINavigationController *nav, JumpType type, UIViewController *fromVC) {
         MineViewControllerOne * toVC = [[MineViewControllerOne alloc] init];
@@ -54,29 +54,27 @@ handler      |界面跳转完成的回调操作(对应模态界面的回调，pu
 	}
 ```
 ### 调用注册方法
-```objectivec
- NSArray *moduleArray = @[ @"MXLoginModule", @"MineModule", @"AddressBookModule", @"MXMessageModule", @"PhotoAssetsModule", @"ClientApprovalMoudle" ];
-    for (NSString *moduleString in moduleArray) {
-        Class class = NSClassFromString(moduleString);
-        SEL sel = NSSelectorFromString(@"registerURL");
-        IMP imp = [class methodForSelector:sel];
-        if (imp) {
-            void (*func)(id, SEL) = (void *)imp;
-            func(class, sel);
-        }
-    }
+```
+NSArray * moduleArray = @[@"MineModule"];
+   for (NSString * moduleString in moduleArray) {
+       Class class = NSClassFromString(moduleString);
+       if ([class respondsToSelector:@selector(registerURL)]) {
+           [class performSelector:@selector(registerURL)
+                       withObject:nil];
+       }
+   }
 ```
 
 
 ### 打开界面调用
 
-```objectivec
+```
 self.router.openUrl(@"ichat://work/vcOnerac?name=zhangsan&age=10")
 self.router.openUrlWithParam(@"ichat://work/vcOnerac",{@"name":@"zhangsan"});
 ```		 
  		
 ### 带回调的调用
-```objectivec
+```
  [self.router.jump(Present).openUrl(vcTwoarc) handler:^{
       NSLog(@"present 完成");
       }];
@@ -84,12 +82,12 @@ self.router.openUrlWithParam(@"ichat://work/vcOnerac",{@"name":@"zhangsan"});
         
 ### 关闭界面
 
-```objectivec
+```
 self.router.closeWithUrl(vcOnerac);
 ```	 
 
 ### 反注册URL 
-```objectivec
+```
 self.router.deregisterURL(vcOnerac);
 ```
 
@@ -112,7 +110,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-“caoye”, “1595576349@qq.com”
+“caoye”, caoye@gomeplus.com
 
 ## License
 

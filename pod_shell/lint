@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pod lib lint ../UIRouter.podspec --use-libraries --sources=git@code.ds.gome.com.cn:Aeromind-iOS/MeiXinSpecs.git,git@code.ds.gome.com.cn:Aeromind-iOS/Specs.git --verbose --allow-warnings

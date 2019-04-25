@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1111D303BD75F45673BE8F81 /* Pods_UIRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA01B3D14E834B09EF74C41D /* Pods_UIRouter_Example.framework */; };
+		0517062036DC9C43E95CAD33 /* libPods-UIRouter_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9072A114F19170915205331 /* libPods-UIRouter_Tests.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -62,8 +62,9 @@
 		7610D7861D5335810064F47E /* MineViewControllerTwo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7610D7841D5335810064F47E /* MineViewControllerTwo.xib */; };
 		7610D7891D53359A0064F47E /* MineModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 7610D7881D53359A0064F47E /* MineModule.m */; };
 		7610D78E1D5472E80064F47E /* MineModule.json in Resources */ = {isa = PBXBuildFile; fileRef = 7610D78D1D5472E80064F47E /* MineModule.json */; };
-		7A69CC9E2E5276B498F5E080 /* Pods_UIRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DEE6AA5BADF9404454687E3 /* Pods_UIRouter_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		D19387DD947CEB801DE74F70 /* libPods-UIRouter_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF6C31CB6DF50119FD27C2F /* libPods-UIRouter_Example.a */; };
+		E81B1A841FEA2EFE007EDBF9 /* MXMessageData.m in Sources */ = {isa = PBXBuildFile; fileRef = E81B1A831FEA2EFE007EDBF9 /* MXMessageData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DF6C31CB6DF50119FD27C2F /* libPods-UIRouter_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIRouter_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4D6C6434F6A9A8053FA628 /* Pods-UIRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIRouter_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UIRouter_Tests/Pods-UIRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5DEE6AA5BADF9404454687E3 /* Pods_UIRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIRouter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* UIRouter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIRouter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -159,7 +160,9 @@
 		BA6EEE8BCB5402092A1C2B37 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C28E0B90EB6D148D45958647 /* Pods-UIRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIRouter_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UIRouter_Tests/Pods-UIRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C91FA73DBAC389C9B7BF7016 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CA01B3D14E834B09EF74C41D /* Pods_UIRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9072A114F19170915205331 /* libPods-UIRouter_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIRouter_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E81B1A821FEA2EFD007EDBF9 /* MXMessageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXMessageData.h; sourceTree = "<group>"; };
+		E81B1A831FEA2EFE007EDBF9 /* MXMessageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXMessageData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +173,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				1111D303BD75F45673BE8F81 /* Pods_UIRouter_Example.framework in Frameworks */,
+				D19387DD947CEB801DE74F70 /* libPods-UIRouter_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +184,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				7A69CC9E2E5276B498F5E080 /* Pods_UIRouter_Tests.framework in Frameworks */,
+				0517062036DC9C43E95CAD33 /* libPods-UIRouter_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +219,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				CA01B3D14E834B09EF74C41D /* Pods_UIRouter_Example.framework */,
-				5DEE6AA5BADF9404454687E3 /* Pods_UIRouter_Tests.framework */,
+				1DF6C31CB6DF50119FD27C2F /* libPods-UIRouter_Example.a */,
+				D9072A114F19170915205331 /* libPods-UIRouter_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -303,6 +306,8 @@
 				7610D76F1D5048EA0064F47E /* MessageViewControllerThree.xib */,
 				7610D7771D504C400064F47E /* MessageView.h */,
 				7610D7781D504C400064F47E /* MessageView.m */,
+				E81B1A821FEA2EFD007EDBF9 /* MXMessageData.h */,
+				E81B1A831FEA2EFE007EDBF9 /* MXMessageData.m */,
 				7610D7671D5045570064F47E /* MessageModule.h */,
 				7610D7681D5045570064F47E /* MessageModule.m */,
 			);
@@ -381,12 +386,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "UIRouter_Example" */;
 			buildPhases = (
-				CFAB11DC81E8F3B3813208FD /* 📦 Check Pods Manifest.lock */,
+				CFAB11DC81E8F3B3813208FD /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				97AF437C9156F48E6B82C815 /* 📦 Embed Pods Frameworks */,
-				A705590DAA8317086F8624E3 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,12 +404,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "UIRouter_Tests" */;
 			buildPhases = (
-				C9736512C09DC1BEA1D8CD0A /* 📦 Check Pods Manifest.lock */,
+				C9736512C09DC1BEA1D8CD0A /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				6857E767D1FFBA41C610F719 /* 📦 Embed Pods Frameworks */,
-				797C69FDD2D583F3A7E03873 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -502,94 +503,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6857E767D1FFBA41C610F719 /* 📦 Embed Pods Frameworks */ = {
+		C9736512C09DC1BEA1D8CD0A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIRouter_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UIRouter_Tests/Pods-UIRouter_Tests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		797C69FDD2D583F3A7E03873 /* 📦 Copy Pods Resources */ = {
+		CFAB11DC81E8F3B3813208FD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIRouter_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UIRouter_Tests/Pods-UIRouter_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97AF437C9156F48E6B82C815 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UIRouter_Example/Pods-UIRouter_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A705590DAA8317086F8624E3 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UIRouter_Example/Pods-UIRouter_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C9736512C09DC1BEA1D8CD0A /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CFAB11DC81E8F3B3813208FD /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -609,6 +556,7 @@
 				6003F5A7195388D20070C39A /* MXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				7610D7701D5048EA0064F47E /* MessageViewControllerThree.m in Sources */,
+				E81B1A841FEA2EFE007EDBF9 /* MXMessageData.m in Sources */,
 				7610D7181D4EFD8B0064F47E /* ViewControllerOne.m in Sources */,
 				7610D73C1D4F334C0064F47E /* WorkViewController.m in Sources */,
 				7610D7281D4F32FF0064F47E /* MessageViewControllerOne.m in Sources */,

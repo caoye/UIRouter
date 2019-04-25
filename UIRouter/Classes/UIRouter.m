@@ -13,7 +13,6 @@
 static NSString * const blockKey  = @"block";
 static NSString * const routerKey = @"router";
 static NSString * const classKey  = @"controllerClass";
-static NSString * const backBlockKey  = @"backBlockKey";
 
 //调用的key
 static NSString * const rouderToVcKey = @"rouderToVcKey";
@@ -23,12 +22,17 @@ static NSString * const routerTypeKey = @"routerTypeKey";
 static NSString * const routerBoolKey = @"routerBoolKey";
 static NSString * const routerClassKey = @"routerClassKey";
 
+@interface UIRouter()
+
+@property (nonatomic, strong) NSMutableDictionary *modulesDict;
+
+@end
+
 @implementation UIRouter
 
 static UIRouter *sharedAccountManagerInstance = nil;
 
-+ (UIRouter *)shareInstance
-{
++ (UIRouter *)shareInstance {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         sharedAccountManagerInstance = [[self alloc] init];
@@ -54,6 +58,13 @@ static UIRouter *sharedAccountManagerInstance = nil;
         _paramDict = [[NSMutableDictionary alloc] init];
     }
     return _paramDict;
+}
+
+- (NSMutableDictionary *)modulesDict {
+    if (!_modulesDict) {
+        _modulesDict = [[NSMutableDictionary alloc] init];
+    }
+    return _modulesDict;
 }
 
 - (void)registerURLPattern:(NSString *)urlPattern Class:(Class)vcClass toHandler:(componentBlock)blk
@@ -91,6 +102,11 @@ static UIRouter *sharedAccountManagerInstance = nil;
     };
 }
 
+- (UIRouter *)callBackBlock:(callBackBlock)callBack {
+    [self.dataDict setObject:callBack forKey:backBlockKey];
+    return self;
+}
+
 - (void)handler:(handlerBlock)block {
     [[UIRouter shareInstance].dataDict setObject:block forKey:routerHandlerKey];
 }
@@ -111,16 +127,19 @@ static UIRouter *sharedAccountManagerInstance = nil;
         if (!type) {
             type = Push;
         }
-        
-        [self.dataDict removeAllObjects];
-        [self.paramDict removeAllObjects];
-        
+
         [self analysisUrl:url];
-        NSDictionary *cachParam = self.cachDict[getCachDictKey(url)];
+        NSMutableDictionary *cachParam = [self.cachDict[getCachDictKey(url)] mutableCopy];
+        if (self.dataDict[backBlockKey]) {
+            [cachParam setObject:self.dataDict[backBlockKey] forKey:backBlockKey];
+        }
+        [self.cachDict setObject:cachParam forKey:getCachDictKey(url)];
+        [self.dataDict removeAllObjects];
         componentBlock blk = cachParam[blockKey];
         if (blk) {
-            blk(_paramDict, nav, type, fromVC);
+            blk(self->_paramDict, nav, type, fromVC);
         }
+        [self.paramDict removeAllObjects];
 
         return self;
     };
@@ -143,10 +162,14 @@ static UIRouter *sharedAccountManagerInstance = nil;
             type = Push;
         }
         
+        NSMutableDictionary *cachParam = [self.cachDict[getCachDictKey(url)] mutableCopy];
+        if (self.dataDict[backBlockKey]) {
+            [cachParam setObject:self.dataDict[backBlockKey] forKey:backBlockKey];
+        }
+        [self.cachDict setObject:cachParam forKey:getCachDictKey(url)];
+        componentBlock blk = cachParam[blockKey];
         [self.dataDict removeAllObjects];
         [self.paramDict removeAllObjects];
-        NSDictionary *cachParam = self.cachDict[getCachDictKey(url)];
-        componentBlock blk = cachParam[blockKey];
         if (blk) {
             blk(param, nav, type, fromVC);
         }
@@ -239,7 +262,7 @@ static UIRouter *sharedAccountManagerInstance = nil;
         if (paramArr.count > 1) {
             NSString* key = [paramArr objectAtIndex:0];
             NSString* value = [paramArr objectAtIndex:1];
-            _paramDict[key] = value;
+            self->_paramDict[key] = value;
         }
     }];
     
@@ -279,7 +302,7 @@ static inline NSDictionary *getRouterDict(NSString * router, Class vcClass, comp
     return @{classKey:vcClass, routerKey:router, blockKey:blk};
 }
 
-static inline NSString *getCachDictKey(NSString *router) {
+NSString *getCachDictKey(NSString *router) {
     NSURL * url = [NSURL URLWithString:router];
     NSString * keyString = [NSString stringWithFormat:@"%@%@", url.host,url.path];
     return keyString;
@@ -310,11 +333,75 @@ static inline UINavigationController *getNav() {
     return result;
 }
 
+#pragma mark - BusinessBus
+
+- (void)registerModules:(NSArray *)modulesArray {
+    for (NSString *moduleString in modulesArray) {
+        [self.modulesDict setObject:createModule(moduleString) forKey:moduleString];
+        registerUrlwithModuleString(moduleString);
+    }
+}
+
+static void registerUrlwithModuleString(NSString *moduleString) {
+    Class class = NSClassFromString(moduleString);
+    SEL sel = NSSelectorFromString(@"registerURL");
+    IMP imp = [class methodForSelector:sel];
+    if (imp) {
+        void (*func)(id, SEL) = (void *)imp;
+        func(class, sel);
+    }
+}
+
+static id createModule(NSString *moduleString) {
+    Class class = NSClassFromString(moduleString);
+    id module = [[class alloc]init];
+    return module;
+}
+
++ (id)postModuleWithTarget:(NSString*)moduleStr action:(SEL)aSelector withObject:(id)obj callBackBlock:(void (^)(id blockParam))block {
+    id manager = [[UIRouter shareInstance].modulesDict objectForKey:moduleStr];
+    SEL customSelector = aSelector;
+    if (!obj) {
+        obj = @"";
+    }
+    NSAssert1(customSelector, @"不存在方法%@", NSStringFromSelector(aSelector));
+    
+    id result;
+    if ([manager respondsToSelector:customSelector]) {
+        IMP imp = [manager methodForSelector:customSelector];
+        id (*func)(id, SEL ,id ,id ) = (void *)imp;
+        result = func(manager, customSelector,obj,block);
+    }
+    
+    return result;
+}
+
++ (id)postModuleWithTarget:(NSString*)moduleStr action:(SEL)aSelector withObject:(id)obj {
+    id manager = [[UIRouter shareInstance].modulesDict objectForKey:moduleStr];
+    SEL customSelector = aSelector;
+    if (!obj) {
+        obj = @"";
+    }
+    NSAssert1(customSelector, @"不存在方法%@", NSStringFromSelector(aSelector));
+    
+    id result;
+    if ([manager respondsToSelector:customSelector]) {
+        IMP imp = [manager methodForSelector:customSelector];
+        id (*func)(id, SEL ,id) = (void *)imp;
+        result = func(manager, customSelector,obj);
+    }
+    
+    return result;
+}
+
 @end
 
 #pragma mark - UIRouter Category
+static void * CallBackBlockKey = (void *)@"CallBackBlockKey";
+
 @implementation NSObject (UIRouter)
-@dynamic router;
+
+@dynamic router,callBackBlock;
 
 - (UIRouter *)router {
     UIRouter *rout = [UIRouter shareInstance];
@@ -322,6 +409,15 @@ static inline UINavigationController *getNav() {
     return rout;
 }
 
+- (void)setCallBackBlock:(callBackBlock)callBackBlock {
+    objc_setAssociatedObject(self, CallBackBlockKey, callBackBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (callBackBlock)callBackBlock {
+    return objc_getAssociatedObject(self, CallBackBlockKey);
+}
+
 @end
+
 
 
